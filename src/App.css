@@ -6,15 +6,5 @@
   height: 35vmin;
   pointer-events: none;
 }
-input{
-  border: 2px solid green;
-  border-radius: 0.75rem;
-}
-select{
-  border: 2px solid green;
-  border-radius: 0.75rem;
-}
-input:hover{
-  border: 2px solid rgb(15, 21, 172);
-}
+
 
