@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useState,useEffect} from 'react'
 import {  Formik, Form, Field } from 'formik';
 import * as Yup from "yup"
 import "./PracticeForm.css"
@@ -45,11 +45,7 @@ const validationSchema = Yup.object({
 
 const PracticeForm = () => {
 
-
   
-  useEffect(()=>{
-    localStorage.setItem('Form',JSON.stringify)
-  },[values])
   
   const dropdownOptions= [
     {key:"select an option",value:""},
@@ -60,15 +56,16 @@ const PracticeForm = () => {
   
 
 return (
+  <>
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
       <Form className='outermost'>
-
+      <h1>Personal Details</h1>
         <div className="first">
-          <h1>Personal Details</h1>
+        
           <label htmlFor="firstName"> Name:</label>
           <Field id="name" type="text" name="myname" placeholder="name.." />
 
@@ -89,9 +86,10 @@ return (
           <Field type="text" id="sex" name="sex" placeholder="sex.." />
 
         </div>
+        <h1>Contact Details</h1>
 
         <div className="second">
-          <h1>Contact Details</h1>
+         
           <label htmlFor="guardian"> Guardian:</label>
           <Field type="text" id="guardian" name="guardian" placeholder="guardian.." />
 
@@ -107,8 +105,9 @@ return (
 
         </div>
 
+        <h1>Address details</h1>
         <div className="third">
-          <h1>Address details</h1>
+         
           <label htmlFor="address"> Address:</label>
           <Field type="text" id="address" name="address" placeholder="address.." />
 
@@ -123,8 +122,9 @@ return (
 
         </div>
 
+        <h1>Other Details</h1>
         <div className="four">
-          <h1>Other Details</h1>
+         
           <label htmlFor="occupation"> Occupation:</label>
           <Field type="text" id="occupation" name="occupation" placeholder="occupation.." />
 
@@ -151,15 +151,73 @@ return (
 
           <label htmlFor="bloodgroup"> Blood Group:</label>
           <Field type="text" id="bloodgroup" name="bloodgroup" placeholder="bloodgroup.." />
-          <button type='submit'>Submit</button>
+
         </div>
+        <button type='submit'>Submit</button>
+
 
        </Form>
 
     </Formik>
+    <div>
 
 
 
+<table class="table">
+    <thead>
+        <tr>
+            {/* <th scope="col">ID</th> */}
+            <th scope="col">Name</th>
+            <th scope="col">MOb.no</th>
+            <th scope="col">DOB</th>
+            <th scope="col">GOVT ID</th>
+            <th scope="col">ID-NO</th>
+            <th scope="col">Sex</th>
+            <th scope="col">Guardian</th>
+            <th scope="col">Guardian Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Country</th>
+            <th scope="col">State</th>
+            <th scope="col">Pin</th>
+            <th scope="col">Occupation</th>
+            <th scope="col">Nationality</th>
+            <th scope="col">Religion</th>
+            <th scope="col">Mariatal status</th>
+            <th scope="col">Blood Group</th>
+        </tr>
+    </thead>
+    <tbody>
+     
+        <tr>
+            <th scope="row">1</th> 
+             <td >myname</td>
+            <td>mobile</td>
+            <td>DOB</td>
+            <td>id</td>
+            <td>govtid</td>
+            <td>sex</td>
+            <td>guardian</td>
+            <td>guardianname</td>
+            <td>email</td>
+            <td>address</td>
+            <td>country</td>
+            <td>state</td>
+            <td>pin</td>
+            <td>occupation</td>
+            <td>nationality</td>
+            <td>religion</td>
+            <td>mariatalstatus</td>
+            <td>bloodgroup</td>
+
+        </tr>
+
+    </tbody>
+</table>
+</div>
+
+
+</>
 
   )
 }
